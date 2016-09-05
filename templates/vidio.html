@@ -1,0 +1,41 @@
+ {% block video  %}
+		{% load static from staticfiles %}
+<div id="testimonial2">
+
+                            <div class="tst-item clearfix">
+							{% for informasi in item %}
+								{% if forloop.counter == 1 %}
+                                <div class="tst-single clearfix">
+                                     <iframe src="http://www.youtube.com/embed/{{ informasi.url  }}"
+   width="450" height="260" frameborder="0" allowfullscreen></iframe>
+                                </div>
+								{% endif %}
+							{% endfor %}
+                            </div>
+
+							      <div class="tst-item clearfix">
+							{% for informasi in item %}
+								{% if forloop.counter == 2 %}
+                                <div class="tst-single clearfix">
+                                     <iframe src="http://www.youtube.com/embed/{{ informasi.url  }}"
+   width="450" height="260" frameborder="0" allowfullscreen></iframe>
+                                </div>
+								{% endif %}
+							{% endfor %}
+                            </div>
+							
+							      <div class="tst-item clearfix">
+							{% for informasi in item %}
+								{% if forloop.counter == 3 %}
+                                <div class="tst-single clearfix">
+                                     <iframe src="http://www.youtube.com/embed/{{ informasi.url  }}"
+   width="450" height="260" frameborder="0" allowfullscreen></iframe>
+                                </div>
+								{% endif %}
+							{% endfor %}
+                            </div>
+               
+
+
+                        </div> <!-- end #testimonial -->
+						{% endblock %}

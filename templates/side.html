@@ -1,0 +1,35 @@
+		  {% block side  %}
+ 			<div class="col-lg-12">
+			   <div class="list-group">
+			   <p class="list-group-item" align="center">{% for berita in tags %}
+			   {% if berita.kategori = 'akomodasi' %} <a href="{% url 'webku:akomodasi' %}">
+			   {% elif berita.kategori = 'wisata air' %} <a href="{% url 'webku:wisataair' %}">
+			   {% elif berita.kategori = 'wisata ziarah' %} <a href="{% url 'webku:wisataziarah' %}">
+			   {% elif berita.kategori = 'wisata sejarah' %} <a href="{% url 'webku:wisatasejarah' %}">
+			   {% elif berita.kategori = 'wisata religi' %} <a href="{% url 'webku:wisatareligi' %}">
+			   {% elif berita.kategori = 'wisata kuliner' %} <a href="{% url 'webku:wisatakuliner' %}">
+			   {% elif berita.kategori = 'wisata edukasi' %} <a href="{% url 'webku:wisataedukasi' %}">
+			   {% elif berita.kategori = 'wisata budaya' %} <a href="{% url 'webku:wisatabudaya' %}">
+			   {% elif berita.kategori = 'wisata alternatif' %} <a href="{% url 'webku:wisataalternatif' %}">
+			   {% elif berita.kategori = 'wisata alam' %} <a href="{% url 'webku:wisataalam' %}">
+			   {% elif berita.kategori = 'public area' %} <a href="{% url 'webku:publicarea' %}">
+			   {% elif berita.kategori = 'talang' %} <a href="{% url 'webku:talang' %}">
+			   {% elif berita.kategori = 'slawi' %} <a href="{% url 'webku:slawi' %}">
+			   {% elif berita.kategori = 'kuliner' %} <a href="{% url 'webku:kuliner' %}">
+			   {% elif berita.kategori = 'melati' %} <a href="{% url 'webku:melati' %}">
+			   {% elif berita.kategori = 'bumijawa' %} <a href="{% url 'webku:bumijawa' %}">
+			   {% elif berita.kategori = 'balapulang' %} <a href="{% url 'webku:balapulang' %}">
+			   {% elif berita.kategori = 'kedungbanteng' %} <a href="{% url 'webku:kedungbanteng' %}">
+			   {% elif berita.kategori = 'tempat belanja' %} <a href="{% url 'webku:belanja' %}">
+			   {% elif berita.kategori = 'oleh - oleh khas' %} <a href="{% url 'webku:oleh2' %}">
+			   {% elif berita.kategori = 'pangkah' %} <a href="{% url 'webku:pangkah' %}">
+			   {% elif berita.kategori = 'budaya' %} <a href="{% url 'webku:budaya' %}">
+			   {% elif berita.kategori = 'tegal barat' %} <a href="{% url 'webku:akomodasi' %}">
+			   {% elif berita.kategori = 'transportasi' %} <a href="{% url 'webku:transport' %}">
+			   {% elif berita.kategori = 'hotel' %} <a href="{% url 'webku:akomodasi' %}">
+			   {% elif berita.kategori = 'Kota Tegal' %} <a href="{% url 'webku:kotategal' %}">{% endif %}
+			   	 <span class="label label-success">{{ berita.kategori}}</span></a>{% endfor %}</p>			  
+			  </div> 
+			   </div>
+			   
+			   {% endblock %}

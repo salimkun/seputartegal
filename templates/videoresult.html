@@ -1,0 +1,81 @@
+{% extends 'template2.html' %}
+{% block menu  %}
+				                <li><a href="{% url 'webku:index'%}">HOME</a></li>
+								<li><a href="{% url 'webku:wisata'%}">OBYEK WISATA</a></li>
+								<li><a href="{% url 'webku:budaya'%}">TRADISI</a></li>
+								<li><a href="{% url 'webku:akomodasi'%}">AKOMODASI</a></li>
+								<li><a href="{% url 'webku:belanja'%}">BELANJA</a></li>
+								<li><a href="{% url 'webku:kuliner'%}">KULINER</a></li>
+								<li><a href="{% url 'webku:transport'%}">TRANSPORTASI</a></li>
+								<li><a href="{% url 'webku:video'%}"><font color="#00FFFF">VIDEO</font></a></li>
+{% endblock %}
+{% block item %}
+<style>
+.seocips-tbn-frm { width:100%; max-width:560px; margin:0px auto; }
+.seocips-tbn-frm_inner { position:relative; padding-bottom:53%; height:0; background-color:#000 !important; border:10px solid #CACACA; }
+.seocips-tbn-frm_inner iframe,.seocips-tbn-frm_inner object,.seocips-tbn-frm_inner embed { position:absolute; top:0; width:100%; height:100%; }
+.bottomshadows { position:relative; }
+.bottomshadows:before,.bottomshadows:after { z-index:-1; position:absolute; content:""; bottom:0; left:10px; width:50%; top:80%; max-width:300px; background:#777; -webkit-box-shadow:0 15px 10px #777; -moz-box-shadow:0 15px 10px #777; box-shadow:0 15px 10px #777; -webkit-transform:rotate(-4deg); -moz-transform:rotate(-4deg); -o-transform:rotate(-4deg); -ms-transform:rotate(-4deg); transform:rotate(-4deg); }
+.bottomshadows:after { -webkit-transform:rotate(4deg); -moz-transform:rotate(4deg); -o-transform:rotate(4deg); -ms-transform:rotate(4deg); transform:rotate(4deg); right:10px; left:auto; }
+@media all and (max-width:400px) {
+    .seocips-tbn-frm_inner { border:7px solid #CACACA !important; } .bottomshadows:before,.bottomshadows:after { bottom:40px !important; }
+}
+</style>
+
+		{% load static from staticfiles %}
+   <!-- Portfolio Item Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">Video
+                    <small></small>
+                </h2>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Portfolio Item Row -->
+        <div class="row">
+			{% if item %}
+				<div id="informasi" class="col-md-8 fadeInLeft">
+				{% for informasi in item %}										
+				<article class="search-result row">
+			<div class="col-xs-12 col-sm-12 col-md-9">
+			<div class="seocips-tbn-frm">
+ <div class="seocips-tbn-frm_inner bottomshadows">
+                                     <iframe src="http://www.youtube.com/embed/{{ informasi.url  }}"
+   width="350" height="160" frameborder="0" allowfullscreen></iframe><br/>   
+<label>{{ informasi.title  }}</label>   
+			</div>
+			</div>
+			</div><hr>
+		</article>
+				 {% endfor %}
+				  {% include 'page.html' %}
+				</div>
+				{% else %}
+				 <div class="col-md-8 fadeInLeft">
+				<p align="justify"> Tidak ada Video yang tersedia </p>
+				 </div>
+						{% endif %}
+				
+            <div class="col-md-4">
+							{% include 'wheather.html' %}
+                    <div class="col-lg-12">
+			   <div class="list-group">
+			   <h4 class="list-group-item">Info Terbaru</h4>	
+			  {% for berita in news %}
+					<a href="{% url 'webku:detail' berita.pk %}" class="list-group-item">					
+			   <p class="list-group-item-text">{{ berita.title}}</p>
+			   </a>
+			 {% endfor %}			  
+			  </div> 
+			   </div>
+			  {% block side  %} {% include 'side.html' %}{% endblock  %}
+            </div>
+
+        </div>
+
+        <!-- /.row -->
+
+
+{% endblock %}

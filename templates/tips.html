@@ -1,0 +1,79 @@
+{% extends 'template2.html' %}
+{% block menu  %}
+				                <li><a href="{% url 'webku:index'%}">HOME</a></li>
+								<li><a href="{% url 'webku:wisata'%}">OBYEK WISATA</a></li>
+								<li><a href="{% url 'webku:budaya'%}">TRADISI</a></li>
+								<li><a href="{% url 'webku:akomodasi'%}">AKOMODASI</a></li>
+								<li><a href="{% url 'webku:belanja'%}">BELANJA</a></li>
+								<li><a href="{% url 'webku:kuliner'%}">KULINER</a></li>
+								<li><a href="{% url 'webku:transport'%}">TRANSPORTASI</a></li>
+								<li><a href="{% url 'webku:tips'%}"><font color="#00FFFF">BERITA</font></a></li>
+								<li><a href="{% url 'webku:video'%}">VIDEO</a></li>
+{% endblock %}
+{% block item %}
+
+
+		{% load static from staticfiles %}
+   <!-- Portfolio Item Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">BERITA
+                    <small></small>
+                </h2>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Portfolio Item Row -->
+        <div class="row">
+			{% if berita %}
+				<div id="informasi" class="col-md-8 fadeInLeft">
+				{% for informasi in berita %}										
+				<article class="search-result row">
+			<div class="col-xs-12 col-sm-12 col-md-3">
+				<div class="thumbnail"><img src="{{ informasi.image.url }}" style="width:160px; height:120px;" alt="Lorem ipsum" /></div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-3">
+				<ul class="meta-search">
+					<li><i class="glyphicon glyphicon-calendar"></i> <span>{{ informasi.pub_date|date:"M d, Y" }}</span></li>
+					<li><i class="glyphicon glyphicon-time"></i> <span>{{ informasi.pub_date|date:"g:i a" }}</span></li>
+					<li><i class="glyphicon glyphicon-bookmark"></i> <span>{{ informasi.sumber }}</span></li>
+				</ul>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-6 excerpet">
+				<h3>{{ informasi.title}}</h3>
+				<p align="justify"><small>{{ informasi.body | safe | slice:"0:190"}}</small></p>						
+                <span><small><a href="{% url 'webku:detail2' informasi.pk %}" title="Lorem ipsum">Baca Selengkapnya</a></small></span>
+			</div>
+			<span class="clearfix borda"></span><hr>
+		</article>
+				 {% endfor %}
+				 {% include 'page.html' %}
+				</div>
+			
+				 {% else %}
+				 <div class="col-md-8 fadeInLeft">
+				<p align="justify"> Tidak ada berita yang tersedia </p>
+				 </div>
+			
+						{% endif %}
+				
+            <div class="col-md-4">
+							{% include 'wheather.html' %}
+                    <div class="col-lg-12">
+			   <div class="list-group">
+			   <h4 class="list-group-item">Info Terbaru</h4>	
+			  {% for berita in news %}
+					<a href="{% url 'webku:detail' berita.pk %}" class="list-group-item">					
+			   <p class="list-group-item-text">{{ berita.title}}</p>
+			   </a>
+			 {% endfor %}			  
+			  </div> 
+			   </div>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+
+{% endblock %}

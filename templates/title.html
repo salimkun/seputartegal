@@ -1,0 +1,17 @@
+                <h2 class="page-header">{% for key in informasi.key.all %}
+				{% if key.kategori == 'wisata air' %} <a href="{% url 'webku:wisata' %}">Obyek Wisata</a>
+				{% elif key.kategori == 'wisata alam' %} <a href="{% url 'webku:wisata' %}">Obyek Wisata</a>
+				{% elif key.kategori == 'wisata alternatif' %} <a href="{% url 'webku:wisata' %}">Obyek Wisata</a>
+				{% elif key.kategori == 'wisata budaya' %} <a href="{% url 'webku:wisata' %}">Obyek Wisata</a>	
+				{% elif key.kategori == 'wisata edukasi' %} <a href="{% url 'webku:wisata' %}">Obyek Wisata</a>					
+				{% elif key.kategori == 'wisata kuliner' %} <a href="{% url 'webku:wisata' %}">Obyek Wisata</a>					
+				{% elif key.kategori == 'wisata religi' %} <a href="{% url 'webku:wisata' %}">Obyek Wisata</a>	
+				{% elif key.kategori == 'wisata sejarah' %} <a href="{% url 'webku:wisata' %}">Obyek Wisata</a>					
+				{% elif key.kategori == 'wisata ziarah' %} <a href="{% url 'webku:wisata' %}">Obyek Wisata</a>
+				{% elif key.kategori == 'public area' %} <a href="{% url 'webku:wisata' %}">Obyek Wisata</a>					
+				{% elif key.kategori == 'akomodasi' %} <a href="{% url 'webku:akomodasi' %}">Akomodasi</a>
+				{% elif key.kategori == 'tempat belanja' %} <a href="{% url 'webku:belanja' %}">Tempat Belanja</a>
+				{% elif key.kategori == 'budaya' %} <a href="{% url 'webku:budaya' %}">Tradisi</a>				
+				{% elif key.kategori == 'kuliner' %} <a href="{% url 'webku:kuliner' %}">Kuliner</a>
+				{% elif key.kategori == 'transportasi' %} <a href="{% url 'webku:transport' %}">Transportasi</a>
+				{% endif %}{% endfor %} / {{ informasi.title }}

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+    <head>
+        <!-- Mobile Specific Meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Always force latest IE rendering engine -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- Meta Keyword -->
+        <meta name="keywords" content="one page, business template, single page, onepage, responsive, parallax, creative, business, html5, css3, css3 animation">
+        <!-- meta character set -->
+        <meta charset="utf-8">
+
+        <!-- Site Title -->
+        <title>SeputarTegal</title>
+        
+        <!--
+        Google Fonts
+        ============================================= -->
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css">
+		{% load static from staticfiles %}
+        <!--
+        CSS
+        ============================================= -->
+        <!-- Fontawesome -->
+		<link rel="shortcut icon" href="{% static 'img/logotiga.png' %}">
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <!-- Fancybox -->
+        <link rel="stylesheet" href="{% static 'css/jquery.fancybox.css' %}">
+        <!-- owl carousel -->
+        <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+        <!-- Animate -->
+        <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+        <!-- Main Stylesheet -->
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        <!-- Main Responsive -->
+        <link rel="stylesheet" href="{% static 'css/responsive.css' %}">	
+        <link rel="stylesheet" href="{% static 'css/searchresponsive.css' %}">	
+		<!-- Modernizer Script for old Browsers -->
+        <script src="{% static 'js/vendor/modernizr-2.6.2.min.js' %}"></script>
+	
+    </head>
+	
+    <body>
+
+
+        <!--
+        Fixed Navigation
+        ==================================== -->
+        <header id="navigation" class="navbar-fixed-top">
+            <div class="container">
+
+                <div class="navbar-header">
+                    <!-- responsive nav button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- /responsive nav button -->
+
+                    <!-- logo -->
+                    <h1 class="navbar-brand">
+                        <a href="{% url 'webku:index'%}">
+                            <img src="{% static 'img/logo.png' %}" alt="Kasper Logo">
+                        </a>
+                    </h1>
+                    <!-- /logo -->
+
+                    </div>
+
+                    <!-- main nav -->
+                    <nav class="collapse navigation navbar-collapse navbar-right" role="navigation">
+                        <ul id="nav" class="nav navbar-nav">
+                            <li class="current"><a href="#home">Home</a></li>
+							<li><a href="#contents">Fitur</a></li>
+                            <li><a href="#service">Obyek Wisata</a></li>
+							<li><a href="#about">About</a></li>
+							<li><a href="#about-us">Dokumentasi</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+     
+                    </nav>
+                    <!-- /main nav -->
+					
+                </div>
+
+		
+        </header>
+        <!--
+        End Fixed Navigation
+        ==================================== -->
+
+        <!--
+        Home Slider
+        ==================================== -->
+        <section id="home">     
+            <div id="home-carousel" class="carousel slide" data-interval="false">
+			
+                <ol class="carousel-indicators">
+                    <li data-target="#home-carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#home-carousel" data-slide-to="1"></li>
+                    <li data-target="#home-carousel" data-slide-to="2"></li>
+                </ol>
+                <!--/.carousel-indicators-->
+
+                <div class="carousel-inner">
+ 
+                    <div class="item active"  style="background-image:url({% static 'img/slider/bg1.jpg' %})" >
+					
+                        <div class="carousel-caption">
+                            <div class="animated bounceInRight">
+								<h2>Selamat Datang di Tegal</h2>
+                                <p>Wilayah Tegal yang terdiri dari dataran rendah dan dataran tinggi menjadi salah satu keuntungan tersendiri bagi Tegal, karena dari sana terdapat tempat-tempat menarik yang bisa dikunjungi. Dan semuanya hampir tersebar merata dari ujung utara hingga ujung selatan. Pantai, waduk, perkebunan, bukit hijau, air terjun, sungai, sumber air panas, hutan bisa ditemukan di Tegal.</p>
+                            </div>
+					   </div>
+                    </div>              
+
+                    <div class="item" style="background-image: url({% static 'img/slider/w.jpg' %})">                
+                        <div class="carousel-caption">
+                            <div class="animated bounceInDown">
+                                <h2>TIRTA WADUK CACABAN.</h2>
+                                <p>Wisata berupa bangunan waduk yang dibangun sejak tahun 1952 dan peletakan batu pertamanya oleh Presiden Soekarno. Fungsi utamanya untuk mengirigasi bagi persawahan disekitarnya namun juga dimanfaatkan oleh Pemerintah Kabupaten Tegal sebagai obyek wisata yang sangat potensial.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item" style="background-image: url({% static 'img/slider/bg4.jpg' %})"> 
+					
+                         <div class="carousel-caption">
+                            <div class="animated bounceInUp">
+                                <h2>Curug Penganten .</h2>
+                                <p>Curug yang bersumber dari aliran sungai Gung ni memiliki ketinggian sekitar 10 - 14 meter. Dikatakan curug penganten karena memiliki sepasang air terjun atau curug, curug sebelah kanan arah aliran air cenderung turun kebawah sedangkan curug pasangannya cenderung memancar lebih deras namun arah airnya menuju pada kolam air yang sama. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/.carousel-inner-->
+                <nav id="nav-arrows" class="nav-arrows hidden-xs hidden-sm visible-md visible-lg">
+                    <a class="sl-prev hidden-xs" href="#home-carousel" data-slide="prev">
+                        <i class="fa fa-angle-left fa-3x"></i>
+                    </a>
+                    <a class="sl-next" href="#home-carousel" data-slide="next">
+                        <i class="fa fa-angle-right fa-3x"></i>
+                    </a>
+                </nav>
+
+            </div>
+		
+        </section>
+        <!--
+        End #home Slider
+        ========================== -->
+		<!--
+        #isi
+        ========================== -->
+	    <section id="contents">
+            <div class="container">
+      
+			<div class="row">
+			<div class="col-md-12">
+                        <div class="section-title text-center wow fadeInDown">
+                            <h2>Fitur</h2> 
+							 <form action="{% url 'webku:search' %}" method="get"  class="search">
+  <input class="searchTerm" placeholder="Enter your search term ..." /><input class="searchButton" style="padding: 40px;" type="submit" />
+</form>
+						</div>
+						
+						
+		  <div class="col-lg-6 col-sm-6 wow fadeInLeft">
+		 <div class="tst-item clearfix">
+                                <div class="tst-single clearfix">
+                                    <img src="{% static 'img/fitur/belanja.jpg' %}" alt="Client" class="img-circle">
+                                    <div class="tst-content">
+									<h4><a href="{% url 'webku:belanja' %}">Tempat Belanja</a></h4>
+                                        <p>Informasi mengenai tempat belanja oleh-oleh khas di Tegal.</p>
+                                    </div>
+                                </div>
+
+                                <div class="tst-single clearfix">
+                                    <img src="{% static 'img/fitur/budaya.jpg' %}" alt="Client" class="img-circle">
+                                    <div class="tst-content">
+									<h4><a href="{% url 'webku:budaya' %}">Tradisi</a></h4>
+									<p>Mengenali Tradisi yang ada di Tegal.</p>
+                                    </div>
+                                </div>
+                            
+
+
+                                <div class="tst-single clearfix">
+                                    <img src="{% static 'img/fitur/transport.jpg' %}" alt="Client" class="img-circle">
+                                    <div class="tst-content">
+									<h4><a href="{% url 'webku:transport' %}">Transportasi</a></h4>
+									<p>Informasi mengenai transportasi umum yang ada di Tegal.</p>
+                                    </div>
+                                </div>
+                            </div>
+							
+							
+</div>
+		  <div class="col-lg-6 col-sm-6 wow fadeInLeft">
+		 <div class="tst-item clearfix">
+                                <div class="tst-single clearfix">
+                                    <img src="{% static 'img/fitur/akomodasi.jpg' %}" alt="Client" class="img-circle">
+                                    <div class="tst-content">
+									<h4><a href="{% url 'webku:akomodasi' %}">Akomodasi</a></h4>
+                                        <p>Informasi hotel dan villa di Tegal.</p>
+                                    </div>
+                                </div>
+
+                                <div class="tst-single clearfix">
+                                    <img src="{% static 'img/fitur/tips.jpg' %}" alt="Client" class="img-circle">
+                                    <div class="tst-content">
+									<h4><a href="{% url 'webku:wisata' %}">Obyek Wisata</a></h4>
+									<p>Informasi mengenai obyek wisata di Tegal.</p>
+                                    </div>
+                                </div>
+                            
+
+
+                                <div class="tst-single clearfix">
+                                    <img src="{% static 'img/fitur/kuliner.jpg' %}" alt="Client" class="img-circle">
+                                    <div class="tst-content">
+									<h4><a href="{% url 'webku:kuliner' %}">Tempat Kuliner</a></h4>
+									<p>Informasi mengenai tempat makan yang ada di Tegal.</p>
+                                    </div>
+                                </div>
+                            </div>
+							
+							
+</div>
+
+		</div>
+		</section>
+	    <!--
+        End #isi
+        ========================== -->
+
+		
+		   <section id="pemisah">
+            <div class="container">
+			</div>
+	</section>
+		
+		<!--
+        #objekwisata
+        ========================== -->
+
+	{% block informasi  %}{% endblock %}
+	
+	    <!--
+        End #obyekwisata
+        ========================== -->
+   <section id="pemisah">
+            <div class="container">
+			</div>
+	</section>
+       
+        <!--
+        #about
+        ========================== -->
+        <section id="about">
+            <div class="container">
+                <div class="row">
+
+                    <div class="section-title text-center wow fadeInUp">
+                        <h2>About Us</h2>    
+                        <p><font size="3" color="#000000">Situs informasi untuk memperkenalkan pariwisata dan produk bisnis masyarakat di Kota dan Kabupaten Tegal kepada wisatawan.</font></p>
+						<p><font size="3" color="#000000">Kepariwisataan salah satu sektor pembangunan yang sangat penting 
+						bagi suatu daerah. Untuk memberikan payung hukum dan kebijakan nasional tentang pariwisata, telah ditetapkan Undang-Undang (UU) No 10 tahun 2009 tentang 
+						Kepariwisataan dan Peraturan Pemerintah (PP) No 50 tahun 2011 tentang Rencana Induk Pembangunan Kepariwisataan Nasional tahun 2010 - 2025.</font></p>
+                    </div>
+                    
+                    <div class="about-us text-center wow fadeInDown">
+                        <img src="{% static 'img/about2.png' %}" style="width:100%; height:200px;" alt="About Us" class="img-responsive">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--
+        End #about
+        ========================== -->
+        
+
+   <section id="pemisah">
+            <div class="container">
+			</div>
+	</section>
+
+        <!--
+        #about-us
+        ========================== -->
+        <section id="about-us">
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-md-5 col-md-offset-1 wow fadeInLeft">
+
+                        <div class="subtitle text-center">
+                            <h3>Testimonials</h3>
+                            <p>Komentar atau pendapat wisatawan mengenai pariwisata di Kota dan Kabupaten Tegal.</p>
+                        </div>
+
+						{% block testimonial  %}{% include 'testimonial.html' %}{% endblock %}
+                        
+                    </div> <!-- end .col-md-5 -->
+
+                    <div class="col-md-5 col-md-offset-1 wow fadeInRight">
+
+                        <div class="subtitle text-center">
+                            <h3>Video</h3>
+                            <p>VIdeo dokumentasi mengenai pariwisata dan produk bisnis masyarakat di Kota dan Kabupaten Tegal.</p>
+                        </div>
+						{% block video  %}{% include 'vidio.html' %}{% endblock %}
+                       
+                    </div>  <!-- end .col-md-5 -->
+
+                </div>
+            </div>
+        </section>
+        <!--
+        End #about-us
+        ========================== -->
+
+
+   <section id="pemisah">
+            <div class="container">
+			</div>
+	</section>
+
+        <!--
+        #contact
+        ========================== -->
+        <section id="contact">
+            <div class="container">
+                <div class="row">
+
+                    <div class="section-title text-center wow fadeInDown">
+                        <h2>Contact Us</h2>
+                    </div>
+                    
+                    <div class="col-md-8 col-sm-9 wow fadeInLeft">
+                       {% block contact  %}{% include 'contact_form/contact_form.html' %}{% endblock %}
+					   {% block result  %}{% endblock %}
+                    </div> <!-- .col-md-8 -->
+
+                    <div class="col-md-4 col-sm-3 wow fadeInRight">
+                        <div class="contact-details">
+                            <span>Telephone :</span>
+                            <p>0852 2689 7678 <br> </p>
+                        </div> <!-- end .contact-details -->
+
+                    </div> <!-- .col-md-4 -->
+					<div class="col-md-4 col-sm-3 wow fadeInRight">
+                        <div class="contact-details">
+                            <span>Email :</span>
+                            <p>m.alimarrasyid@gmail.com <br> <br>m.alim_arrasyid@student.gunadarma.ac.id</p>
+                        </div> <!-- end .contact-details -->
+
+                    </div> <!-- .col-md-4 -->
+
+                </div>
+            </div>
+			
+			
+		
+        </section>
+        <!--
+        End #contact
+        ========================== -->
+        <!--
+        #footer
+        ========================== -->
+        <footer id="footer" class="text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div class="footer-logo wow fadeInDown">
+                            <img src="{% static 'img/logo.png' %}" alt="logo">
+                        </div>
+
+                        <div class="footer-social wow fadeInUp">
+                            <h3>We are social</h3>
+                            <ul class="text-center list-inline">
+                                <li><a href="https://www.facebook.com/muhamad.a.arrasyid?fref=ts"><i class="fa fa-facebook fa-lg"></i></a></li>
+                                <li><a href="https://twitter.com/AlimArrasyid"><i class="fa fa-twitter fa-lg"></i></a></li>
+                                <li><a href="https://plus.google.com/108497592595266667893"><i class="fa fa-google-plus fa-lg"></i></a></li>
+                                <li><a href="http://alimarrasyid.blogspot.co.id/"><i class="fa fa-dribbble fa-lg"></i></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="copyright">
+                            <p>Developed by <a target="_blank" href="http://www.alimarrasyid.blogspot.com">AlimCorporation</a></p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--
+        End #footer
+        ========================== -->
+
+
+        <!--
+        JavaScripts
+        ========================== -->
+        
+        <!-- main jQuery -->
+        <script src="{% static 'js/vendor/jquery-1.11.1.min.js' %}"></script>
+        <!-- Bootstrap -->
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <!-- jquery.nav -->
+        <script src="{% static 'js/jquery.nav.js' %}"></script>
+        <!-- Portfolio Filtering -->
+        <script src="{% static 'js/jquery.mixitup.min.js' %}"></script>
+        <!-- Fancybox -->
+        <script src="{% static 'js/jquery.fancybox.pack.js' %}"></script>
+        <!-- Parallax sections -->
+        <script src="{% static 'js/jquery.parallax-1.1.3.js' %}"></script>
+        <!-- jQuery Appear -->
+        <script src="{% static 'js/jquery.appear.js' %}"></script>
+        <!-- countTo -->
+        <script src="{% static 'js/jquery-countTo.js' %}"></script>
+        <!-- owl carousel -->
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <!-- WOW script -->
+        <script src="{% static 'js/wow.min.js' %}"></script>
+        <script src="{% static 'js/responsivesearch.js' %}"></script>
+
+        <!-- theme custom scripts -->
+        <script src="{% static 'js/main.js' %}"></script>
+    </body>
+</html>

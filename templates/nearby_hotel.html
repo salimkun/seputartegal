@@ -1,0 +1,122 @@
+		{% if informasi.title == "Big Berry Donut Pastry and Coffee" %}	
+			  {% for berita in bigberry1 %}
+			  {% if berita.distance < 11  %}
+					<a href="{% url 'webku:detail' berita.pk %}" class="list-group-item">					
+			   <p class="list-group-item-text"><b>{{ berita.title }}</b> {{ berita.distance|floatformat }} KM </p>
+			   </a>
+			   {% endif %}
+			 {% endfor %}
+		{% elif informasi.title == "Rumah Makan Saung Strawberry" %}	
+			  {% for berita in sstrawberry1 %}
+			  {% if berita.distance < 11  %}
+					<a href="{% url 'webku:detail' berita.pk %}" class="list-group-item">					
+			   <p class="list-group-item-text"><b>{{ berita.title }}</b> {{ berita.distance|floatformat }} KM </p>
+			   </a>
+			   {% endif %}
+			 {% endfor %}
+		{% elif informasi.title == "Kacang Asin Ceria" %}	
+			  {% for berita in ceria1 %}
+			  {% if berita.distance < 11  %}
+					<a href="{% url 'webku:detail' berita.pk %}" class="list-group-item">					
+			   <p class="list-group-item-text"><b>{{ berita.title }}</b> {{ berita.distance|floatformat }} KM </p>
+			   </a>
+			   {% endif %}
+			 {% endfor %}
+		{% elif informasi.title == "Riez Palace" %}	
+			  {% for berita in rpalace1 %}
+			  {% if berita.distance < 11  %}
+					<a href="{% url 'webku:detail' berita.pk %}" class="list-group-item">					
+			   <p class="list-group-item-text"><b>{{ berita.title }}</b> {{ berita.distance|floatformat }} KM </p>
+			   </a>
+			   {% endif %}
+			 {% endfor %}
+		{% elif informasi.title == "Hotel Sankita Guci" %}	
+			  {% for berita in sankita1 %}
+			  {% if berita.distance < 11  %}
+					<a href="{% url 'webku:detail' berita.pk %}" class="list-group-item">					
+			   <p class="list-group-item-text"><b>{{ berita.title }}</b> {{ berita.distance|floatformat }} KM </p>
+			   </a>
+			   {% endif %}
+			 {% endfor %}
+		{% elif informasi.title == "Alun-alun Tegal (AAT)" %}	
+			  {% for berita in aat1 %}
+			  {% if berita.distance < 11  %}
+					<a href="{% url 'webku:detail' berita.pk %}" class="list-group-item">					
+			   <p class="list-group-item-text"><b>{{ berita.title }}</b> {{ berita.distance|floatformat }} KM </p>
+			   </a>
+			   {% endif %}
+			 {% endfor %}
+		{% elif informasi.title == "Makam Ki Gede Sebayu" %}	
+			  {% for berita in mkgsb1 %}
+			  {% if berita.distance < 11  %}
+					<a href="{% url 'webku:detail' berita.pk %}" class="list-group-item">					
+			   <p class="list-group-item-text"><b>{{ berita.title }}</b> {{ berita.distance|floatformat }} KM </p>
+			   </a>
+			   {% endif %}
+			 {% endfor %}
+		{% elif informasi.title == "Gedung SCS / Birao Tegal" %}	
+			  {% for berita in scs1 %}
+			  {% if berita.distance < 11  %}
+					<a href="{% url 'webku:detail' berita.pk %}" class="list-group-item">					
+			   <p class="list-group-item-text"><b>{{ berita.title }}</b> {{ berita.distance|floatformat }} KM </p>
+			   </a>
+			   {% endif %}
+			 {% endfor %}
+		{% elif informasi.title == "Langgar Dhuwur Pesekongan" %}	
+			  {% for berita in langpes1 %}
+			  {% if berita.distance < 11  %}
+					<a href="{% url 'webku:detail' berita.pk %}" class="list-group-item">					
+			   <p class="list-group-item-text"><b>{{ berita.title }}</b> {{ berita.distance|floatformat }} KM </p>
+			   </a>
+			   {% endif %}
+			 {% endfor %}
+		{% elif informasi.title == "Pasar Senggol" %}	
+			  {% for berita in paseng1 %}
+			  {% if berita.distance < 11  %}
+					<a href="{% url 'webku:detail' berita.pk %}" class="list-group-item">					
+			   <p class="list-group-item-text"><b>{{ berita.title }}</b> {{ berita.distance|floatformat }} KM </p>
+			   </a>
+			   {% endif %}
+			 {% endfor %}
+		{% elif informasi.title == "Museum Sekolah Slawi" %}	
+			  {% for berita in musek1 %}
+			  {% if berita.distance < 11  %}
+					<a href="{% url 'webku:detail' berita.pk %}" class="list-group-item">					
+			   <p class="list-group-item-text"><b>{{ berita.title }}</b> {{ berita.distance|floatformat }} KM </p>
+			   </a>
+			   {% endif %}
+			 {% endfor %}
+		{% elif informasi.title == "Kampung Seni PAI Tegal" %}	
+			  {% for berita in kwis1 %}
+			  {% if berita.distance < 11  %}
+					<a href="{% url 'webku:detail' berita.pk %}" class="list-group-item">					
+			   <p class="list-group-item-text"><b>{{ berita.title }}</b> {{ berita.distance|floatformat }} KM </p>
+			   </a>
+			   {% endif %}
+			 {% endfor %}	
+		{% elif informasi.title == "Guci Paintball" %}	
+			  {% for berita in pball1 %}
+			  {% if berita.distance < 11  %}
+					<a href="{% url 'webku:detail' berita.pk %}" class="list-group-item">					
+			   <p class="list-group-item-text"><b>{{ berita.title }}</b> {{ berita.distance|floatformat }} KM </p>
+			   </a>
+			   {% endif %}
+			 {% endfor %}
+		{% elif informasi.title == "Curug Penganten, Bumijawa" %}	
+			  {% for berita in cp1 %}
+			  {% if berita.distance < 11 %}
+					<a href="{% url 'webku:detail' berita.pk %}" class="list-group-item">					
+			   <p class="list-group-item-text"><b>{{ berita.title }}</b> {{ berita.distance|floatformat }} KM </p>
+			   </a>
+			   {% endif %}  
+			 {% endfor %}
+		{% elif informasi.title == "Tirta Waduk Cacaban" %}	
+			  {% for berita in twc1 %}
+			  {% if berita.distance < 11 %}
+					<a href="{% url 'webku:detail' berita.pk %}" class="list-group-item">					
+			   <p class="list-group-item-text"><b>{{ berita.title }}</b> {{ berita.distance|floatformat }} KM </p>
+			   </a>
+			   {% endif %}
+			 {% endfor %}
+		{% endif %}
+

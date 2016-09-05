@@ -1,0 +1,280 @@
+{% extends 'template2.html' %}
+{% load hitcount_tags %}
+{% load mathfilters %}
+{% block menu  %}
+				                <li><a href="{% url 'webku:index'%}">HOME</a></li>
+								<li><a href="{% url 'webku:wisata'%}">OBYEK WISATA</a></li>
+								<li><a href="{% url 'webku:budaya'%}">TRADISI</a></li>
+								<li><a href="{% url 'webku:akomodasi'%}">AKOMODASI</a></li>
+								<li><a href="{% url 'webku:belanja'%}">BELANJA</a></li>
+								<li><a href="{% url 'webku:kuliner'%}">KULINER</a></li>
+								<li><a href="{% url 'webku:transport'%}">TRANSPORTASI</a></li>
+								<li><a href="{% url 'webku:video'%}">VIDEO</a></li>
+{% endblock %}
+{% block item %}
+
+{% get_hit_count_js_variables for informasi as hitcount %}
+{% get_hit_count for informasi as total_hits %}
+
+		{% load static from staticfiles %}
+   <!-- Portfolio Item Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+			{% block title  %}{% include 'title.html' %}{% endblock %}
+                    <small></small>
+                </h2>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Portfolio Item Row -->
+		<div class="row">
+            <div class="col-md-8">
+			<i class="glyphicon glyphicon-calendar"></i> <span>{{ informasi.date|date:"M d, Y" }}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+			<i class="glyphicon glyphicon-user"></i> <span>{{ total_hits }} views</span>&nbsp;&nbsp;&nbsp;&nbsp;
+			</div>
+			
+			</div>
+        <div class="row">
+            <div class="col-md-8">
+			<figure style="float:left; margin:8px 9px -4px 0;">
+                <img class="img-responsive" style="width:325px; height:200px;"  src="{{ informasi.image.image.url  }}" alt="image">
+				<figcaption><p><small><font color="#999090">{{ informasi.image.keterangan }}</font></small></p></figcaption></figure>
+				<p align="justify">{{ informasi.body |safe }}</p>
+				 <br/>
+				 <pre><i class="glyphicon glyphicon-tags"></i><span>&nbsp;Tags </span>{% for key in informasi.key.all %}<span class="label label-success">{{ key }}</span></a> {% endfor %}</pre>
+{% if data_json3.items %}	
+            <div class="col-lg-12">
+                <h3 class="page-header">Foto Terkait</h3>
+            </div>
+				<div id="links">
+							{% for news1 in data_json3.items %}
+								{% if forloop.counter < 7 %}
+								<div class="col-sm-4 col-xs-12">				
+			<a href="{{ news1.link }}" title="{{ news1.title }}" data-gallery>
+				<img class="img-responsive" style="width:100%; height:180px;" src="{{ news1.link }}" alt="{{ news1.title }}">
+			</a><br/>				
+			</div>	
+				{% endif %}
+				{% endfor %}
+					<div class="col-sm-4 col-xs-12">
+			{% if informasi.image.image_satu %}					
+			<a href="{{ informasi.image.image_satu.url  }}" title="{{ informasi.title  }}" data-gallery>
+				<img class="img-responsive" style="width:310px; height:170px;" src="{{ informasi.image.image_satu.url  }}" alt="Banana">
+			</a><br/>				
+			{% endif %}
+			</div>	
+			{% if informasi.image.image_dua %}
+			<div class="col-sm-4 col-xs-12">	
+			<a href="{{ informasi.image.image_dua.url  }}" title="{{ informasi.title  }}" data-gallery>
+				<img class="img-responsive" style="width:310px; height:170px;" src="{{ informasi.image.image_dua.url  }}" alt="Apple">
+			</a><br/></div>
+			{% endif %}
+			{% if informasi.image.image_tiga %}
+			<div class="col-sm-4 col-xs-12">	
+			<a href="{{ informasi.image.image_tiga.url  }}" title="{{ informasi.title  }}" data-gallery>
+				<img class="img-responsive" style="width:310px; height:170px;" src="{{ informasi.image.image_tiga.url  }}" alt="Apple">
+			</a><br/>
+			</div>
+			{% endif %}
+			{% if informasi.image.image_empat %}
+			<div class="col-sm-4 col-xs-12">	
+			<a href="{{ informasi.image.image_empat.url  }}" title="{{ informasi.title  }}" data-gallery>
+				<img class="img-responsive" style="width:310px; height:170px;" src="{{ informasi.image.image_empat.url  }}" alt="Apple">
+			</a><br/>
+			</div>
+				{% endif %}	
+			</div>
+		{% endif %}	
+				<div class="col-lg-12">
+				<div id="content">
+				
+				{% include 'share.html' %}
+				
+				
+				
+</div>
+</div>
+
+			<!--  lokasi terdekat -->
+			{% if informasi.location %}
+			<div class="col-lg-12 col-xs-12">
+			 <div id="content">
+			  <h4 class="page-header"><font color="#23A4F5">Jarak 10 KM dari {{ informasi.title }}</font></h4>
+        <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+            <li class="active"><a href="#tab-1" data-toggle="tab">Obyek Wisata</a></li>
+            <li><a href="#tab-2" data-toggle="tab">Penginapan</a></li>
+            <li><a href="#tab-3" data-toggle="tab">Lainnya</a></li>
+        </ul>
+        <div id="my-tab-content" class="tab-content">
+            <div class="tab-pane active" id="tab-1">
+             <div class="list-group">
+			 
+		{% include 'nearby_ow.html' %}<br/>
+			{% if data_json1.data %}
+			   <a href="" class="list-group-item active">
+			   <img style="width:30px; height:20px;" src="{% static 'img/tripadvisor.png' %}"/>
+			   TripAdvisor
+			   </a>
+			{% endif %}
+			{% for news in data_json1.data %}
+				{% if news.rating %}
+					<a href="{{ news.web_url }}" class="list-group-item">					
+						<p class="list-group-item-text"><b>{{ news.name }}</b> {{ news.distance | mul:1.60934 | floatformat }} KM <br />
+						<img src="{{ news.rating_image_url }}"> {{ news.num_reviews }} Reviews</p>
+					</a>
+			    {% endif %}
+			{% endfor %}						
+			  </div> 			
+            </div>
+            <div class="tab-pane" id="tab-2">
+              {% include 'nearby_hotel.html' %}<br/>
+			{% if data_json.data %}
+			   <a href="" class="list-group-item active">
+			   <img style="width:30px; height:20px;" src="{% static 'img/tripadvisor.png' %}"/>
+			   TripAdvisor
+			   </a>
+			{% endif %}
+			{% for news in data_json.data %}
+				{% if news.rating %}
+					<a href="{{ news.web_url }}" class="list-group-item">					
+						<p class="list-group-item-text"><b>{{ news.name }}</b> {{ news.distance | mul:1.60934 | floatformat }} KM <br />
+						<img src="{{ news.rating_image_url }}"> {{ news.num_reviews }} Reviews</p>
+					</a>
+			    {% endif %}
+			{% endfor %}
+			
+            </div>
+            <div class="tab-pane" id="tab-3">
+             {% include 'nearby_lain.html' %}<br/>
+			{% if data_json2.data %}
+			   <a href="" class="list-group-item active">
+			   <img style="width:30px; height:20px;" src="{% static 'img/tripadvisor.png' %}"/>
+			   TripAdvisor
+			   </a>
+			{% endif %}
+			{% for news in data_json2.data %}
+				{% if news.rating %}
+					<a href="{{ news.web_url }}" class="list-group-item">					
+						<p class="list-group-item-text"><b>{{ news.name }}</b> {{ news.distance | mul:1.60934 | floatformat }} KM <br />
+						<img src="{{ news.rating_image_url }}"> {{ news.num_reviews }} Reviews</p>
+					</a>
+			    {% endif %}
+			{% endfor %}
+            </div>
+        </div>
+            </div>
+			</div>
+			  {% endif %}
+			 
+		<div class="col-lg-12">
+			 <div id="content">
+{% load disqus_tags %}
+{% disqus_show_comments %}
+{% set_disqus_title object.headline %}
+			 </div>
+			 </div>
+				 </div>
+			
+			
+            <div class="col-md-4">
+			{% if informasi.qrcode %}
+			 <div class="col-sm-12 col-xs-12">
+			<img src="{{ informasi.qrcode.url }}" align="left" style="width:165px; height:161px; border:0px;  margin:-8px 1px 0 -17px;" alt="Event QR code" />  
+			</div>
+			{% endif %}
+			   {% if informasi.alamat %}
+			    <div class="col-sm-12 col-xs-12">
+			   <a href="#" class="list-group-item active">
+			   Alamat
+			   </a>
+			   <ul class="list-group">
+			   <li class="list-group-item">
+			   {{ informasi.alamat | linebreaksbr }}
+			   </li>
+			   </ul>
+			   </div>
+			   {% endif %}
+			   {% if informasi.location %}
+			      <div class="col-sm-12 col-xs-12">
+				 <div class="google-maps">
+			   <iframe width="325" height="250" frameborder="0" style="border:0"
+			  
+src="https://www.google.com/maps/embed/v1/place?q={{informasi.location}}&amp;key=AIzaSyDOntlUJpq21wPpALcwgARqk5fg_jYL-wo" allowfullscreen></iframe>
+				</div></br>
+				</div>
+				 {% endif %}
+				<div class="col-sm-12 col-xs-12">
+
+				</div>			 
+							   
+
+							   
+							  
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+				<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery">
+    <!-- The container for the modal slides -->
+    <div class="slides"></div>
+    <!-- Controls for the borderless lightbox -->
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+    <!-- The modal dialog, which will be used to wrap the lightbox content -->
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body next"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left prev">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Previous
+                    </button>
+                    <button type="button" class="btn btn-primary next">
+                        Next
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+		
+	
+        <!-- /.row -->
+		{% endblock %}
+		
+		{% block inline_javascript %}
+
+<script src="{% static 'hitcount/jquery.postcsrf.js' %}"></script>
+
+{% get_hit_count_js_variables for informasi as hitcount %}
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+  $.postCSRF("{{ hitcount.ajax_url }}", { hitcountPK : "{{ hitcount.pk }}" })
+    .done(function(data){
+      $('<i />').text(data.hit_counted).attr('id','hit-counted-value').appendTo('#hit-counted');
+      $('#hit-response').text(data.hit_message);
+  }).fail(function(data){
+      console.log('POST failed');
+      console.log(data);
+  });
+});
+</script>
+<script type="text/javascript">
+jQuery(document).ready(function ($) {
+    $('#tabs').tab();
+});
+</script>
+{% endblock %}

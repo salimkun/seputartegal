@@ -1,0 +1,17 @@
+  {% block contact  %}
+		{% load static from staticfiles %}
+ <div class="contact-form clearfix">
+                            <form action="index.html" method="post">
+                                <div class="input-field">
+                                    <input type="text" class="form-control" name="name" placeholder="Your Name" required="">
+                                </div>
+                                <div class="input-field">
+                                    <input type="email" class="form-control" name="sender" placeholder="Your Email" required="">
+                                </div>
+                                <div class="input-field message">
+                                    <textarea name="message" class="form-control" placeholder="Your Message" required=""></textarea>
+                                </div>
+                                <input type="submit" class="btn btn-blue pull-right" value="SEND MESSAGE" id="msg-submit">
+                            </form>
+                        </div> <!-- end .contact-form -->
+						 {% endblock %}

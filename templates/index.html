@@ -1,0 +1,54 @@
+{% extends 'template.html' %}
+
+{% block informasi %}
+
+
+        <section id="service">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-title text-center wow fadeInDown">
+                            <h2>Obyek Wisata</h2>    
+                        </div>
+                    </div>
+                </div>
+		{% if info %}
+                <div class="row">
+				{% for informasi in info %}
+                    <div class="col-lg-4 col-sm-6 wow fadeInLeft">
+                        <div class="media">
+                                <img style="width:340px; height:200px; margin:0 0 8px 0;" src="{{ informasi.image.image.url }}" class="media-object" alt="Monitor">
+					
+						   <div class="media-body">
+                                <h3> 
+								{{ informasi.title}}</h3>                                
+								<p align="justify">{{ informasi.body| safe | slice:"0:150"}}</p>
+                            	<p><a href="{% url 'webku:detail' informasi.pk %}">
+								Baca Selengkapnya </p>                   
+								</a>
+							</div>
+
+                        </div>
+
+                    </div>
+				{% endfor %}
+				
+
+				<div class="col-md-12">
+					<div class="section-title text-center wow fadeInDown">
+                            <h4><a href="{% url 'webku:wisata' %}"><span class="label label-primary">Objek Wisata Lainnya</span></a> </h4> 
+                    </div>				
+				</div>
+                </div> <!-- end .row -->
+				{% else %}
+				<p> No polls are available </p>
+		
+		{% endif %}
+				
+            </div> <!-- end .container -->
+        </section>
+	
+		
+
+
+{% endblock %}
